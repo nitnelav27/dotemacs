@@ -29,7 +29,7 @@
     ("~/Documents/SUBMISSIONS/CSSSA2019/final_submission/csssa2019_valentin-amira.org")))
  '(package-selected-packages
    (quote
-    (gnuplot circadian magit auctex org-ref exec-path-from-shell flycheck elpy ein ob-ipython org-re-reveal org-tempo ox-reveal org-babel-eval-in-repl swiper ivy counsel which-key use-package try org-bullets ace-window))))
+    (spacemacs-theme gnuplot-mode gnuplot circadian magit auctex org-ref exec-path-from-shell flycheck elpy ein ob-ipython org-re-reveal org-tempo ox-reveal org-babel-eval-in-repl swiper ivy counsel which-key use-package try org-bullets ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

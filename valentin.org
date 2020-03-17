@@ -278,21 +278,23 @@ This is my configuration file for emacs. Most of it is not original, but taken f
      (doom-modeline-init)
    #+END_SRC
 
-   And change the color scheme according to OS. First, for linux:
+   UPDATE: I will comment out the change according to OS. I will only use doom-peackock. In case I want to reenable circadian package in the future, I will just comment it out.
+
+And change the color scheme according to OS. First, for linux:
    #+BEGIN_SRC emacs-lisp
-     (if (eq system-type 'gnu/linux)
-	  (load-theme 'doom-peacock t))
+     ;(if (eq system-type 'gnu/linux)
+	  (load-theme 'doom-peacock t);)
    #+END_SRC
 
    And for Mac:
    #+BEGIN_SRC emacs-lisp
-     (if (eq system-type 'darwin)
-	 (use-package circadian
-	   :ensure t
-	   :config
-	   (setq circadian-themes '(("8:00" . leuven)
-				    ("18:00" . doom-peacock)))
-	   (circadian-setup)))
+     ;(if (eq system-type 'darwin)
+     ;    (use-package circadian
+     ;      :ensure t
+     ;      :config
+     ;      (setq circadian-themes '(("8:00" . leuven)
+     ;			       ("18:00" . doom-peacock)))
+     ;      (circadian-setup)))
    #+END_SRC
 
 ** Ace Windows

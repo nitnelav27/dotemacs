@@ -251,18 +251,18 @@
 ;; Theme:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Theme][Theme:2]]
-(if (eq system-type 'gnu/linux)
-     (load-theme 'doom-peacock t))
+;(if (eq system-type 'gnu/linux)
+     (load-theme 'doom-peacock t);)
 ;; Theme:2 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Theme][Theme:3]]
-(if (eq system-type 'darwin)
-    (use-package circadian
-      :ensure t
-      :config
-      (setq circadian-themes '(("8:00" . leuven)
-			       ("18:00" . doom-peacock)))
-      (circadian-setup)))
+;(if (eq system-type 'darwin)
+;    (use-package circadian
+;      :ensure t
+;      :config
+;      (setq circadian-themes '(("8:00" . leuven)
+;			       ("18:00" . doom-peacock)))
+;      (circadian-setup)))
 ;; Theme:3 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Ace%20Windows][Ace Windows:1]]
