@@ -225,15 +225,16 @@ This is my configuration file for emacs. Most of it is not original, but taken f
     #+BEGIN_SRC emacs-lisp
       (if (eq system-type 'gnu/linux)
 	  (set-face-attribute 'default nil
-			      :family "Hasklig"
-			      :height 140))
+			      :family "Source Code Pro"
+			      :height 150))
       (if (eq system-type 'gnu/linux)
 	  (set-face-attribute 'fixed-pitch nil
-			      :family "Hasklig"
-			      :height 130))
+			      :family "Source Code Pro"
+			      :height 140))
       (if (eq system-type 'gnu/linux)
 	  (set-face-attribute 'variable-pitch nil
-			    :family "Hasklig"))
+			      :family "Source Code Pro"
+			      :height 150))
     #+END_SRC
 *** For Mac
     #+BEGIN_SRC emacs-lisp

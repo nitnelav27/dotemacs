@@ -201,15 +201,16 @@
 ;; [[file:~/.emacs.d/valentin.org::*For%20Linux][For Linux:1]]
 (if (eq system-type 'gnu/linux)
     (set-face-attribute 'default nil
-			:family "Hasklig"
-			:height 140))
+			:family "Source Code Pro"
+			:height 160))
 (if (eq system-type 'gnu/linux)
     (set-face-attribute 'fixed-pitch nil
-			:family "Hasklig"
-			:height 130))
+			:family "Source Code Pro"
+			:height 150))
 (if (eq system-type 'gnu/linux)
     (set-face-attribute 'variable-pitch nil
-		      :family "Hasklig"))
+			:family "Source Code Pro"
+			:height 160))
 ;; For Linux:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*For%20Mac][For Mac:1]]
