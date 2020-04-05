@@ -202,15 +202,15 @@
 (if (eq system-type 'gnu/linux)
     (set-face-attribute 'default nil
 			:family "Source Code Pro"
-			:height 160))
+			:height 150))
 (if (eq system-type 'gnu/linux)
     (set-face-attribute 'fixed-pitch nil
 			:family "Source Code Pro"
-			:height 150))
+			:height 140))
 (if (eq system-type 'gnu/linux)
     (set-face-attribute 'variable-pitch nil
 			:family "Source Code Pro"
-			:height 160))
+			:height 150))
 ;; For Linux:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*For%20Mac][For Mac:1]]
@@ -436,6 +436,15 @@
   (if (eq system-type 'darwin)
     (exec-path-from-shell-initialize)))
 ;; Basic org:2 ends here
+
+;; [[file:~/.emacs.d/valentin.org::*Basic%20org][Basic org:3]]
+(if (eq system-type 'gnu/linux)
+    ;; PDFs visited in Org-mode are opened in Evince (and not in the default choice)
+    (eval-after-load "org"
+      '(progn
+     ;; Change .pdf association directly within the alist
+	 (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s"))))
+;; Basic org:3 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Org%20Bullets][Org Bullets:1]]
 (use-package org-bullets

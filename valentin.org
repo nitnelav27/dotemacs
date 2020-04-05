@@ -468,7 +468,8 @@ And change the color scheme according to OS. First, for linux:
 
 
    #+END_SRC
-   This is only for Mac 
+   
+This is only for Mac 
    #+BEGIN_SRC emacs-lisp
      (use-package exec-path-from-shell
        :init
@@ -476,6 +477,16 @@ And change the color scheme according to OS. First, for linux:
        (if (eq system-type 'darwin)
 	 (exec-path-from-shell-initialize)))
    #+END_SRC
+
+With this, I make sure that my opened files (after compilation are opened in evince)
+#+BEGIN_SRC emacs-lisp
+  (if (eq system-type 'gnu/linux)
+      ;; PDFs visited in Org-mode are opened in Evince (and not in the default choice)
+      (eval-after-load "org"
+	'(progn
+       ;; Change .pdf association directly within the alist
+	   (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s"))))
+#+END_SRC
 ** Org Bullets
    #+BEGIN_SRC emacs-lisp
      (use-package org-bullets
