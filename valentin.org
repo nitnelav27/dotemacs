@@ -9,13 +9,9 @@ This is my configuration file for emacs. Most of it is not original, but taken f
 
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'package-archives
-	       '("org" . "https://orgmode.org/elpa/") t)
-#+END_SRC
-
-** Try
-#+BEGIN_SRC emacs-lisp
-(use-package try
-	:ensure t)
+		 '("org" . "https://orgmode.org/elpa/") t)
+  (add-to-list 'package-archives
+		   '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 #+END_SRC
 
 ** Which
@@ -82,115 +78,114 @@ This is my configuration file for emacs. Most of it is not original, but taken f
    I will use this instead of auto-complete. It appears to be more suited to my needs.
    #+BEGIN_SRC emacs-lisp
       ;; this is for company (global)
-      (use-package company
-      :ensure t
-      :config
-      (setq company-idle-delay 0)
-      (setq company-minimum-prefix-length 3)
+     ; (use-package company
+     ; :ensure t
+     ; :config
+     ; (setq company-idle-delay 0)
+     ; (setq company-minimum-prefix-length 3)
 
-      (global-company-mode t)
-      )
+     ; (global-company-mode t)
+     ; )
 
       ;; Dependency for later
-     (use-package all-the-icons
-       :ensure t
-       :if (eq system-type 'gnu/linux)
-       :config (unless (file-exists-p (expand-file-name "~/.local/share/fonts/all-the-icons.ttf"))
-		 (all-the-icons-install-fonts)))
+     ;(use-package all-the-icons
+     ;  :ensure t
+     ;  :if (eq system-type 'gnu/linux)
+     ;  :config (unless (file-exists-p (expand-file-name "~/.local/share/fonts/all-the-icons.ttf"))
+     ;	    (all-the-icons-install-fonts)))
 
       ;; For LaTeX
-      (use-package company-auctex
-	:ensure t
-	:defer t
-	:hook ((LaTeX-mode . company-auctex-init)))
+      ;(use-package company-auctex
+      ;  :ensure t
+      ;  :defer t
+      ;  :hook ((LaTeX-mode . company-auctex-init)))
 
       ;; For C and its family
-      (use-package company-irony
-      :ensure t
-      :config 
-      (add-to-list 'company-backends 'company-irony)
+     ; (use-package company-irony
+     ; :ensure t
+     ; :config 
+     ; (add-to-list 'company-backends 'company-irony)
 
-      )
+     ; )
 
-      (use-package irony
-      :ensure t
-      :config
-      (add-hook 'c++-mode-hook 'irony-mode)
-      (add-hook 'c-mode-hook 'irony-mode)
-      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-      )
+     ; (use-package irony
+     ; :ensure t
+     ; :config
+     ; (add-hook 'c++-mode-hook 'irony-mode)
+     ; (add-hook 'c-mode-hook 'irony-mode)
+     ; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+     ; )
 
-      (use-package irony-eldoc
-      :ensure t
-      :config
-      (add-hook 'irony-mode-hook #'irony-eldoc))
-
-
-      ;; Python
-      (defun my/python-mode-hook ()
-	(add-to-list 'company-backends 'company-jedi))
-
-      (add-hook 'python-mode-hook 'my/python-mode-hook)
-
-
-      (use-package company-jedi
-	  :ensure t
-	  :config
-	  (add-hook 'python-mode-hook 'jedi:setup)
-	     )
+     ; (use-package irony-eldoc
+     ; :ensure t
+     ; :config
+     ; (add-hook 'irony-mode-hook #'irony-eldoc))
 
       ;; company with nice boxes
-      (use-package company-box
-	:ensure t
-	:after company
-	:diminish company-box-mode
-	:hook ((company-mode . company-box-mode))
-	:config
-	(setq company-box-backends-colors nil)
-	    (setq company-box-show-single-candidate t)
-	    (setq company-box-max-candidates 50)
-	    (setq company-box-icons-alist 'company-box-icons-all-the-icons)
-	    (defun company-box-icons--elisp (candidate)
-	      (when (derived-mode-p 'emacs-lisp-mode)
-		(let ((sym (intern candidate)))
-		  (cond ((fboundp sym) 'Function)
-			((featurep sym) 'Module)
-			((facep sym) 'Color)
-			((boundp sym) 'Variable)
-			((symbolp sym) 'Text)
-			(t . nil)))))
-	    (with-eval-after-load 'all-the-icons
-	      (declare-function all-the-icons-faicon 'all-the-icons)
-	      (declare-function all-the-icons-material 'all-the-icons)
-	      (setq company-box-icons-all-the-icons
-		    `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.9 :v-adjust -0.2))
-		      (Text . ,(all-the-icons-material "text_fields" :height 0.9 :v-adjust -0.2))
-		      (Method . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
-		      (Function . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
-		      (Constructor . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
-		      (Field . ,(all-the-icons-faicon "tag" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-blue))
-		      (Variable . ,(all-the-icons-faicon "tag" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-blue))
-		      (Class . ,(all-the-icons-material "settings_input_component" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
-		      (Interface . ,(all-the-icons-material "share" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
-		      (Module . ,(all-the-icons-material "view_module" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
-		      (Property . ,(all-the-icons-faicon "wrench" :height 0.9 :v-adjust -0.06))
-		      (Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.9 :v-adjust -0.2))
-		      (Value . ,(all-the-icons-material "format_align_right" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
-		      (Enum . ,(all-the-icons-material "storage" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
-		      (Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.9 :v-adjust -0.2))
-		      (Snippet . ,(all-the-icons-material "format_align_center" :height 0.9 :v-adjust -0.2))
-		      (Color . ,(all-the-icons-material "palette" :height 0.9 :v-adjust -0.2))
-		      (File . ,(all-the-icons-faicon "file-o" :height 0.9 :v-adjust -0.06))
-		      (Reference . ,(all-the-icons-material "collections_bookmark" :height 0.9 :v-adjust -0.2))
-		      (Folder . ,(all-the-icons-faicon "folder-open" :height 0.9 :v-adjust -0.06))
-		      (EnumMember . ,(all-the-icons-material "format_align_right" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blueb))
-		      (Constant . ,(all-the-icons-faicon "square-o" :height 0.9 :v-adjust -0.06))
-		      (Struct . ,(all-the-icons-material "settings_input_component" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
-		      (Event . ,(all-the-icons-faicon "bolt" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-orange))
-		      (Operator . ,(all-the-icons-material "control_point" :height 0.9 :v-adjust -0.2))
-		      (TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.9 :v-adjust -0.06))
-		      (Template . ,(all-the-icons-material "format_align_center" :height 0.9 :v-adjust -0.2))))))
+     ; (use-package company-box
+     ;   :ensure t
+     ;   :after company
+     ;   :diminish company-box-mode
+     ;   :hook ((company-mode . company-box-mode))
+     ;   :config
+     ;   (setq company-box-backends-colors nil)
+     ;       (setq company-box-show-single-candidate t)
+     ;       (setq company-box-max-candidates 50)
+     ;       (setq company-box-icons-alist 'company-box-icons-all-the-icons)
+     ;       (defun company-box-icons--elisp (candidate)
+     ;	 (when (derived-mode-p 'emacs-lisp-mode)
+     ;	   (let ((sym (intern candidate)))
+     ;	     (cond ((fboundp sym) 'Function)
+     ;		   ((featurep sym) 'Module)
+     ;		   ((facep sym) 'Color)
+     ;		   ((boundp sym) 'Variable)
+     ;		   ((symbolp sym) 'Text)
+     ;		   (t . nil)))))
+     ;      (with-eval-after-load 'all-the-icons
+     ;	 (declare-function all-the-icons-faicon 'all-the-icons)
+     ;	 (declare-function all-the-icons-material 'all-the-icons)
+     ;	 (setq company-box-icons-all-the-icons
+     ;	       `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.9 :v-adjust -0.2))
+     ;		 (Text . ,(all-the-icons-material "text_fields" :height 0.9 :v-adjust -0.2))
+     ;		 (Method . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
+     ;		 (Function . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
+     ;		 (Constructor . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
+     ;		 (Field . ,(all-the-icons-faicon "tag" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-blue))
+     ;		 (Variable . ,(all-the-icons-faicon "tag" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-blue))
+     ;		 (Class . ,(all-the-icons-material "settings_input_component" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
+     ;		 (Interface . ,(all-the-icons-material "share" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
+     ;		 (Module . ,(all-the-icons-material "view_module" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
+     ;		 (Property . ,(all-the-icons-faicon "wrench" :height 0.9 :v-adjust -0.06))
+     ;		 (Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.9 :v-adjust -0.2))
+     ;		 (Value . ,(all-the-icons-material "format_align_right" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
+     ;		 (Enum . ,(all-the-icons-material "storage" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
+     ;		 (Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.9 :v-adjust -0.2))
+     ;		 (Snippet . ,(all-the-icons-material "format_align_center" :height 0.9 :v-adjust -0.2))
+     ;		 (Color . ,(all-the-icons-material "palette" :height 0.9 :v-adjust -0.2))
+     ;		 (File . ,(all-the-icons-faicon "file-o" :height 0.9 :v-adjust -0.06))
+     ;		 (Reference . ,(all-the-icons-material "collections_bookmark" :height 0.9 :v-adjust -0.2))
+     ;		 (Folder . ,(all-the-icons-faicon "folder-open" :height 0.9 :v-adjust -0.06))
+     ;		 (EnumMember . ,(all-the-icons-material "format_align_right" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blueb))
+     ;		 (Constant . ,(all-the-icons-faicon "square-o" :height 0.9 :v-adjust -0.06))
+     ;		 (Struct . ,(all-the-icons-material "settings_input_component" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
+     ;		 (Event . ,(all-the-icons-faicon "bolt" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-orange))
+     ;		 (Operator . ,(all-the-icons-material "control_point" :height 0.9 :v-adjust -0.2))
+     ;		 (TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.9 :v-adjust -0.06))
+     ;		 (Template . ,(all-the-icons-material "format_align_center" :height 0.9 :v-adjust -0.2))))))
   #+END_SRC
+This is a test of auto-complete
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-complete
+  :ensure t
+  :init
+  (progn
+  (ac-config-default)
+  (global-auto-complete-mode t)
+  ))
+
+  (setq py-python-command "python3")
+  (setq python-shell-interpreter "python3")
+#+END_SRC
 * Look and feel
 
 ** Start in fullscreen
