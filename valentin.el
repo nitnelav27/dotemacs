@@ -582,6 +582,11 @@
   :ensure t
   :init 
   (elpy-enable))
+
+(setq elpy-rpc-python-command "python3")
+
+(setq python-shell-interpreter "python3"
+      python-shell-interpreter-args "-i")
 ;; Elpy (should do most of the work):1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Flycheck%20for%20autocompletion][Flycheck for autocompletion:1]]
