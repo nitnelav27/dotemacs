@@ -535,6 +535,13 @@ With this, I make sure that my opened files (after compilation are opened in evi
      (use-package ein
        :ensure t)
      (require 'ein)
+
+     (setq org-babel-python-command "python3")
+
+     (custom-set-variables
+      '(flycheck-python-flake8-executable "python3")
+      '(flycheck-python-pycompile-executable "python3")
+      '(flycheck-python-pylint-executable "python3"))
    #+END_SRC
 ** Exporting to LaTeX
    This is to produce a pdf without using shell. Let's see if it works
@@ -614,6 +621,11 @@ Nothing in =hypersetup=
      ;; to use R kernel on ein chunks
       (ein:org-register-lang-mode "ein-R" 'R)
     #+END_SRC
+** Source blocks are not indented (mostly for python)
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-preserve-indentation nil 
+	org-edit-src-content-indentation 0)
+#+END_SRC
 * Python
 ** Elpy (should do most of the work)
    #+BEGIN_SRC emacs-lisp
@@ -624,10 +636,10 @@ Nothing in =hypersetup=
    #+END_SRC
 ** Flycheck for autocompletion
    #+BEGIN_SRC emacs-lisp
-     (use-package flycheck
-	   :ensure t
-	   :init
-	   (global-flycheck-mode t))
+   (use-package flycheck
+     :ensure t
+     :init
+     (global-flycheck-mode t))
   #+END_SRC
 
 ** Some other stuff to use Python 3

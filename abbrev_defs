@@ -127,6 +127,8 @@
 
 (define-abbrev-table 'global-abbrev-table '())
 
+(define-abbrev-table 'gnus-group-mode-abbrev-table '())
+
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
 (define-abbrev-table 'help-mode-abbrev-table '())

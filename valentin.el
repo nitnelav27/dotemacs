@@ -1,12 +1,9 @@
 ;; [[file:~/.emacs.d/valentin.org::*This%20is%20for%20org%20/repository/][This is for org /repository/:1]]
 (add-to-list 'package-archives
-	     '("org" . "https://orgmode.org/elpa/") t)
+	       '("org" . "https://orgmode.org/elpa/") t)
+(add-to-list 'package-archives
+		 '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;; This is for org /repository/:1 ends here
-
-;; [[file:~/.emacs.d/valentin.org::*Try][Try:1]]
-(use-package try
-	:ensure t)
-;; Try:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Which][Which:1]]
 (use-package which-key
@@ -493,6 +490,13 @@
 (use-package ein
   :ensure t)
 (require 'ein)
+
+(setq org-babel-python-command "python3")
+
+(custom-set-variables
+ '(flycheck-python-flake8-executable "python3")
+ '(flycheck-python-pycompile-executable "python3")
+ '(flycheck-python-pylint-executable "python3"))
 ;; Support for ipython and jupyter notebooks:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Exporting%20to%20LaTeX][Exporting to LaTeX:1]]
@@ -568,6 +572,11 @@
  (ein:org-register-lang-mode "ein-R" 'R)
 ;; Load all the languages in org:2 ends here
 
+;; [[file:~/.emacs.d/valentin.org::*Source%20blocks%20are%20not%20indented%20(mostly%20for%20python)][Source blocks are not indented (mostly for python):1]]
+(setq org-src-preserve-indentation nil 
+      org-edit-src-content-indentation 0)
+;; Source blocks are not indented (mostly for python):1 ends here
+
 ;; [[file:~/.emacs.d/valentin.org::*Elpy%20(should%20do%20most%20of%20the%20work)][Elpy (should do most of the work):1]]
 (use-package elpy
   :ensure t
@@ -577,9 +586,9 @@
 
 ;; [[file:~/.emacs.d/valentin.org::*Flycheck%20for%20autocompletion][Flycheck for autocompletion:1]]
 (use-package flycheck
-      :ensure t
-      :init
-      (global-flycheck-mode t))
+  :ensure t
+  :init
+  (global-flycheck-mode t))
 ;; Flycheck for autocompletion:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Some%20other%20stuff%20to%20use%20Python%203][Some other stuff to use Python 3:1]]
