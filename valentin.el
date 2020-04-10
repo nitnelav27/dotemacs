@@ -278,6 +278,9 @@
 
 ;; [[file:~/.emacs.d/valentin.org::*Numbers%20in%20all%20buffers][Numbers in all buffers:1]]
 (global-linum-mode t)
+
+					; nice formatting for numbers
+(setq linum-format "%4d \u2502 ")
 ;; Numbers in all buffers:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Global%20text%20wrapping][Global text wrapping:1]]

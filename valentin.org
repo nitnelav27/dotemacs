@@ -311,7 +311,10 @@ And change the color scheme according to OS. First, for linux:
   #+END_SRC
 ** Numbers in all buffers
    #+BEGIN_SRC emacs-lisp
-     (global-linum-mode t)
+   (global-linum-mode t)
+
+					   ; nice formatting for numbers
+   (setq linum-format "%4d \u2502 ")
    #+END_SRC
 ** Global text wrapping
    #+BEGIN_SRC emacs-lisp
