@@ -576,8 +576,8 @@
 ;; Load all the languages in org:2 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Source%20blocks%20are%20not%20indented%20(mostly%20for%20python)][Source blocks are not indented (mostly for python):1]]
-(setq org-src-preserve-indentation nil 
-      org-edit-src-content-indentation 0)
+(setq org-edit-src-content-indentation 0
+      org-src-preserve-indentation t)
 ;; Source blocks are not indented (mostly for python):1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Elpy%20(should%20do%20most%20of%20the%20work)][Elpy (should do most of the work):1]]
