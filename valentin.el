@@ -60,115 +60,48 @@
 ;; Spell Checker:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Autocomplete][Autocomplete:1]]
-;; this is for company (global)
-; (use-package company
-; :ensure t
-; :config
-; (setq company-idle-delay 0)
-; (setq company-minimum-prefix-length 3)
-
-; (global-company-mode t)
-; )
-
- ;; Dependency for later
-;(use-package all-the-icons
-;  :ensure t
-;  :if (eq system-type 'gnu/linux)
-;  :config (unless (file-exists-p (expand-file-name "~/.local/share/fonts/all-the-icons.ttf"))
-;	    (all-the-icons-install-fonts)))
-
- ;; For LaTeX
- ;(use-package company-auctex
- ;  :ensure t
- ;  :defer t
- ;  :hook ((LaTeX-mode . company-auctex-init)))
-
- ;; For C and its family
-; (use-package company-irony
-; :ensure t
-; :config 
-; (add-to-list 'company-backends 'company-irony)
-
-; )
-
-; (use-package irony
-; :ensure t
-; :config
-; (add-hook 'c++-mode-hook 'irony-mode)
-; (add-hook 'c-mode-hook 'irony-mode)
-; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-; )
-
-; (use-package irony-eldoc
-; :ensure t
-; :config
-; (add-hook 'irony-mode-hook #'irony-eldoc))
-
- ;; company with nice boxes
-; (use-package company-box
-;   :ensure t
-;   :after company
-;   :diminish company-box-mode
-;   :hook ((company-mode . company-box-mode))
-;   :config
-;   (setq company-box-backends-colors nil)
-;       (setq company-box-show-single-candidate t)
-;       (setq company-box-max-candidates 50)
-;       (setq company-box-icons-alist 'company-box-icons-all-the-icons)
-;       (defun company-box-icons--elisp (candidate)
-;	 (when (derived-mode-p 'emacs-lisp-mode)
-;	   (let ((sym (intern candidate)))
-;	     (cond ((fboundp sym) 'Function)
-;		   ((featurep sym) 'Module)
-;		   ((facep sym) 'Color)
-;		   ((boundp sym) 'Variable)
-;		   ((symbolp sym) 'Text)
-;		   (t . nil)))))
-;      (with-eval-after-load 'all-the-icons
-;	 (declare-function all-the-icons-faicon 'all-the-icons)
-;	 (declare-function all-the-icons-material 'all-the-icons)
-;	 (setq company-box-icons-all-the-icons
-;	       `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.9 :v-adjust -0.2))
-;		 (Text . ,(all-the-icons-material "text_fields" :height 0.9 :v-adjust -0.2))
-;		 (Method . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
-;		 (Function . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
-;		 (Constructor . ,(all-the-icons-faicon "cube" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-purple))
-;		 (Field . ,(all-the-icons-faicon "tag" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-blue))
-;		 (Variable . ,(all-the-icons-faicon "tag" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-blue))
-;		 (Class . ,(all-the-icons-material "settings_input_component" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
-;		 (Interface . ,(all-the-icons-material "share" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
-;		 (Module . ,(all-the-icons-material "view_module" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
-;		 (Property . ,(all-the-icons-faicon "wrench" :height 0.9 :v-adjust -0.06))
-;		 (Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.9 :v-adjust -0.2))
-;		 (Value . ,(all-the-icons-material "format_align_right" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blue))
-;		 (Enum . ,(all-the-icons-material "storage" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
-;		 (Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.9 :v-adjust -0.2))
-;		 (Snippet . ,(all-the-icons-material "format_align_center" :height 0.9 :v-adjust -0.2))
-;		 (Color . ,(all-the-icons-material "palette" :height 0.9 :v-adjust -0.2))
-;		 (File . ,(all-the-icons-faicon "file-o" :height 0.9 :v-adjust -0.06))
-;		 (Reference . ,(all-the-icons-material "collections_bookmark" :height 0.9 :v-adjust -0.2))
-;		 (Folder . ,(all-the-icons-faicon "folder-open" :height 0.9 :v-adjust -0.06))
-;		 (EnumMember . ,(all-the-icons-material "format_align_right" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-blueb))
-;		 (Constant . ,(all-the-icons-faicon "square-o" :height 0.9 :v-adjust -0.06))
-;		 (Struct . ,(all-the-icons-material "settings_input_component" :height 0.9 :v-adjust -0.2 :face 'all-the-icons-orange))
-;		 (Event . ,(all-the-icons-faicon "bolt" :height 0.9 :v-adjust -0.06 :face 'all-the-icons-orange))
-;		 (Operator . ,(all-the-icons-material "control_point" :height 0.9 :v-adjust -0.2))
-;		 (TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.9 :v-adjust -0.06))
-;		 (Template . ,(all-the-icons-material "format_align_center" :height 0.9 :v-adjust -0.2))))))
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1))
 ;; Autocomplete:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Autocomplete][Autocomplete:2]]
 (use-package auto-complete
 :ensure t
-:init
-(progn
-(ac-config-default)
-(global-auto-complete-mode t)
-))
+;:init
+;(progn
+;(ac-config-default)
+;(global-auto-complete-mode t)
+					;)
+)
 
 (setq py-python-command "python3")
 (setq python-shell-interpreter "python3")
 ;; Autocomplete:2 ends here
+
+;; [[file:~/.emacs.d/valentin.org::*Autocomplete][Autocomplete:3]]
+;(use-package auto-complete-auctex
+;  :ensure t)
+(use-package ac-math
+  :ensure t)
+
+(add-to-list 'ac-modes 'latex-mode) ; beware of using 'LaTeX-mode instead
+(defun my-ac-latex-mode () ; add ac-sources for latex
+   (setq ac-sources
+         (append '(ac-source-math-latex
+           ac-source-latex-commands)
+                 ac-sources)))
+(add-hook 'LaTeX-mode-hook 'my-ac-latex-mode)
+(setq ac-math-unicode-in-math-p nil)
+(ac-flyspell-workaround) ; fixes a known bug of delay due to flyspell (if it is there)
+(add-to-list 'ac-modes 'org-mode) ; auto-complete for org-mode (optional)
+(require 'auto-complete-config) ; should be after add-to-list 'ac-modes and hooks
+(ac-config-default)
+(setq ac-auto-start t)            ; if t starts ac at startup automatically
+(setq ac-auto-show-menu t)
+(global-auto-complete-mode t)
+;; Autocomplete:3 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Start%20in%20fullscreen][Start in fullscreen:1]]
 (custom-set-variables
@@ -638,22 +571,20 @@
 ;; Some other stuff to use Python 3:2 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*LaTeX][LaTeX:1]]
-(if (eq system-type 'darwin)
-    (use-package auctex
-      :ensure t
-      :mode ("\\.tex\\'" . latex-mode)
-      :commands (latex-mode LaTeX-mode plain-tex-mode)
-      :init
-      (progn
-	(add-hook 'LaTeX-mode-hook #'LaTeX-preview-setup)
-	(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-	(add-hook 'LaTeX-mode-hook #'flyspell-mode)
-	(add-hook 'LaTeX-mode-hook #'turn-on-reftex)
-	(setq TeX-auto-save t
-	      TeX-parse-self t
-	      TeX-save-query nil
-	      TeX-PDF-mode t)
-    )))
+(use-package tex-site
+  :ensure auctex
+  :mode ("\\.tex\\'" . latex-mode)
+  :config
+  (setq TeX-parse-self t)
+  ;; Here we make auctex aware of latexmk and xelatexmk. We can use
+  ;; these instead of calling pdflatex, bibtex, pdflatex, pdflatex (or
+  ;; similar). I'll set latexmk as the default as there's really no
+  ;; reason to use pdflatex
+  (eval-after-load "tex"
+    '(add-to-list 'TeX-command-list '("latexmk" "latexmk -synctex=1 -shell-escape -pdf %s" TeX-run-TeX nil t :help "Process file with latexmk")))
+  (eval-after-load "tex"
+    '(add-to-list 'TeX-command-list '("xelatexmk" "latexmk -synctex=1 -shell-escape -xelatex %s" TeX-run-TeX nil t :help "Process file with xelatexmk")))
+  (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk"))))
 ;; LaTeX:1 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Only%20for%20R%20stuff][Only for R stuff:1]]
