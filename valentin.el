@@ -587,6 +587,27 @@
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk"))))
 ;; LaTeX:1 ends here
 
+;; [[file:~/.emacs.d/valentin.org::*Yasnippet][Yasnippet:1]]
+(use-package yasnippet
+  :ensure t
+  :config
+  (use-package yasnippet-snippets
+    :ensure t)
+  (yas-reload-all))
+;; Yasnippet:1 ends here
+
+;; [[file:~/.emacs.d/valentin.org::*Yasnippet][Yasnippet:2]]
+(add-hook 'org-mode-hook 'yas-minor-mode)
+(add-hook 'latex-mode-hook 'yas-minor-mode)
+(add-hook 'f90-mode-hook 'yas-minor-mode)
+(add-hook 'python-mode-hook 'yas-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+(add-hook 'c++-mode-hook 'yas-minor-mode)
+(add-hook 'c-mode-hook 'yas-minor-mode)
+(add-hook 'r-mode-hook 'yas-minor-mode)
+(add-hook 'ess-mode-hook 'yas-minor-mode)
+;; Yasnippet:2 ends here
+
 ;; [[file:~/.emacs.d/valentin.org::*Only%20for%20R%20stuff][Only for R stuff:1]]
 (use-package ess-site
   :ensure ess

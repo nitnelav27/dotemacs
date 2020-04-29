@@ -1,4 +1,4 @@
 git:
 	git add --all
-	git commit -m "$m"
+	-git commit -m "$m"
 	git push emacs master

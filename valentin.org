@@ -645,6 +645,29 @@ And some more stuff to make it compatible with doom-themes.
     '(add-to-list 'TeX-command-list '("xelatexmk" "latexmk -synctex=1 -shell-escape -xelatex %s" TeX-run-TeX nil t :help "Process file with xelatexmk")))
   (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "latexmk"))))
   #+END_SRC
+* Yasnippet
+This is a package that /gives/ code snippets to several languages.
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :config
+  (use-package yasnippet-snippets
+    :ensure t)
+  (yas-reload-all))
+#+END_SRC
+
+The following block activates yas minor mode for different major modes.
+#+BEGIN_SRC emacs-lisp
+(add-hook 'org-mode-hook 'yas-minor-mode)
+(add-hook 'latex-mode-hook 'yas-minor-mode)
+(add-hook 'f90-mode-hook 'yas-minor-mode)
+(add-hook 'python-mode-hook 'yas-minor-mode)
+(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
+(add-hook 'c++-mode-hook 'yas-minor-mode)
+(add-hook 'c-mode-hook 'yas-minor-mode)
+(add-hook 'r-mode-hook 'yas-minor-mode)
+(add-hook 'ess-mode-hook 'yas-minor-mode)
+#+END_SRC
 * R (in ESS)
 ** Only for R stuff
    #+BEGIN_SRC emacs-lisp
