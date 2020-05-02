@@ -124,7 +124,6 @@ This is autocomplete for LaTeX
 #+END_SRC
 
 * Look and feel
-
 ** Start in fullscreen
    #+BEGIN_SRC emacs-lisp
      (custom-set-variables
@@ -172,13 +171,13 @@ This is autocomplete for LaTeX
     #+BEGIN_SRC emacs-lisp
       (if (eq system-type 'darwin)
 	  (set-face-attribute 'default nil
-			      :family "Hasklig" :height 190))
+			      :family "Hasklig" :height 220))
       (if (eq system-type 'darwin)
 	  (set-face-attribute 'fixed-pitch nil
-			      :family "Hasklig" :height 170))
+			      :family "Hasklig" :height 200))
       (if (eq system-type 'darwin)
 	  (set-face-attribute 'variable-pitch nil
-			    :family "Hasklig" :height 190))
+			    :family "Hasklig" :height 220))
     #+END_SRC
 ** Delete Highlighted text
    The normal behavior for this.
@@ -198,25 +197,41 @@ This is autocomplete for LaTeX
    A global setting to use doom theme's icons and other stuff
 
    #+BEGIN_SRC emacs-lisp
-     (use-package doom-themes
-       :ensure t
-       :defer)
+(use-package doom-themes
+  :custom-face
+  (cursor ((t (:background "BlanchedAlmond"))))
+  :config
+  ;; flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config)
+  (load-theme 'doom-material t))
 
-     (use-package doom-modeline
-       :ensure t
-       :defer)
-
-     (require 'doom-modeline)
-
-     (doom-modeline-init)
+(use-package doom-modeline
+  :custom
+  ;; Don't compact font caches during GC. Windows Laggy Issue
+  (inhibit-compacting-font-caches t)
+  (doom-modeline-minor-modes t)
+  (doom-modeline-icon t)
+  (doom-modeline-major-mode-color-icon t)
+  (doom-modeline-height 20)
+  (doom-modeline-buffer-state-icon t)
+  :config
+  (doom-modeline-mode))
    #+END_SRC
 
-   UPDATE: I will comment out the change according to OS. I will only use doom-peackock. In case I want to reenable circadian package in the future, I will just comment it out.
+With this I will enable all-the-icons
+#+BEGIN_SRC emacs-lisp
+(use-package all-the-icons
+  :ensure t)
+#+END_SRC
+
+UPDATE: I will comment out the change according to OS. I will only use doom-peackock. In case I want to reenable circadian package in the future, I will just comment it out.
 
 And change the color scheme according to OS. First, for linux:
    #+BEGIN_SRC emacs-lisp
-     ;(if (eq system-type 'gnu/linux)
-	  (load-theme 'doom-peacock t);)
+;(if (eq system-type 'gnu/linux)
+;    (load-theme 'doom-peacock t))
    #+END_SRC
 
    And for Mac:
@@ -296,11 +311,19 @@ And change the color scheme according to OS. First, for linux:
 	'(sp-with-modes 'web-mode
 	   (sp-local-pair "\{" nil :actions nil))))
    #+END_SRC
+
+Rainbow parenthesis according to their depth
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-delimiters
+  :ensure t
+  :init
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+END_SRC
 ** Remap cmd key in Mac
    #+BEGIN_SRC emacs-lisp
      ;; remap command key to meta
-     (if (eq system-type 'darwin)
-	 (setq mac-command-modifier 'meta))
+;     (if (eq system-type 'darwin)
+;	 (setq mac-command-modifier 'meta))
    #+END_SRC
 ** Show greek letters in org mode 
    #+BEGIN_SRC emacs-lisp
