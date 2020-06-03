@@ -2,11 +2,39 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- '((".doi.org"
-  [url-cookie "__cfduid" "da15eb5c356128a15a27c87a04d9657431556201666" "Fri, 24-Apr-20 14:14:26 GMT" "/" ".doi.org" nil]))
+ '(("journals.aps.org"
+  [url-cookie "apsjournals.session" "BAh7CUkiD3Nlc3Npb25faWQGOgZFVG86HVJhY2s6OlNlc3Npb246OlNlc3Npb25JZAY6D0BwdWJsaWNfaWRJIkUzM2ZmMTk0Y2RmM2ZlYWU2MzIwZjBiNDdmNTg4ZTdjNDAxYTQ2MmFjOTBlOWMwOWNlMGI0NDhhMjYzM2I3MmY0BjsARkkiB2lkBjsARkkiKTBjYTg1NWE3LTY5NzktNDIwOS05MzY1LTMzNmVlMzViYjhlZgY7AEZJIgljc3JmBjsARkkiRWI4OTA3NWE3NGU5Y2RjZjNlNDAwODM3OGViNGUwN2NkMGE3YTA4NmRlNjNhOGQ5OGRmODJlMmYzYzY0ZGEzMzAGOwBGSSILX2ZsYXNoBjsARnsA--07b1d431cb89a7372a643facd6ac24bb9782d988" "Sat, 13 Jun 2020 23:01:25 GMT" "/" "journals.aps.org" nil])
+ (".nature.com"
+  [url-cookie "idp_marker" "abcadeed-fe1f-4330-b227-9c8ff0b92235" "Mon May 13 08:31:26 2030 GMT" "/" ".nature.com" nil])
+ (".sciencedirect.com"
+  [url-cookie "id_ab" "B:50:7:f4eaab75-7f0d-41d6-8180-1e30a48e1a44" "Tue, 15 May 2040 01:32:03 GMT" "/" ".sciencedirect.com" nil]
+  [url-cookie "SD_REMOTEACCESS" "eyJhY2NvdW50SWQiOiIzNTExOCIsImRlcHRJZCI6IjUyMjUwIiwidGltZXN0YW1wIjoxNTg5NTA2MzIzNjk5fQ==" "Sat, 15 May 2021 01:32:03 GMT" "/" ".sciencedirect.com" nil]
+  [url-cookie "ANONRA_COOKIE" "D8E729E877BAD32C96487B34147498B83F38495CBB5B6798C3AD0DCE6826D9C62C61614A13830B3DF868A718AAF35F7E3FA570E28AE30639" "Sat, 15 May 2021 01:32:03 GMT" "/" ".sciencedirect.com" nil]
+  [url-cookie "EUID" "a732c763-f6bd-4fcf-961b-139cecc637dc" "Sat, 05 May 2040 22:46:09 GMT" "/" ".sciencedirect.com" nil])
+ (".pnas.org"
+  [url-cookie "__cfduid" "db44ffe84c8f33c2731bf57165519790e1589216745" "Wed, 10-Jun-20 17:05:45 GMT" "/" ".pnas.org" nil])
+ (".sciencemag.org"
+  [url-cookie "__cfduid" "d3813af9cd18356cfa2124cf79b954aaf1589505854" "Sun, 14-Jun-20 01:24:14 GMT" "/" ".sciencemag.org" nil])
+ ("linkinghub.elsevier.com"
+  [url-cookie "visitorId" "ScQ0eaGfw7vUQtm46y72" "Wed Jun 02 04:46:09 2088 GMT" "/" "linkinghub.elsevier.com" nil]))
 )
 (setq url-cookie-secure-storage
- 'nil)
+ '((".doi.org"
+  [url-cookie "__cfduid" "d88013fbf3e6ec2e0f534c652a88a49321588718716" "Thu, 04-Jun-20 22:45:16 GMT" "/" ".doi.org" t])
+ (".journals.uchicago.edu"
+  [url-cookie "__cfduid" "d4ca34f0edd08b19b10d4dad57d3c53c41589429662" "Sat, 13-Jun-20 04:14:22 GMT" "/" ".journals.uchicago.edu" t]
+  [url-cookie "I2KBRCK" "1" "Fri, 14-May-2021 04:14:22 GMT" "/" ".journals.uchicago.edu" t]
+  [url-cookie "MAID" "9SWWUWqmIpKFxRNfjyijLA==" "Wed, 10-Mar-2021 04:14:23 GMT" "/" ".journals.uchicago.edu" t]
+  [url-cookie "MACHINE_LAST_SEEN" "2020-05-13T21%3A14%3A22.997-07%3A00" "Wed, 10-Mar-2021 04:14:23 GMT" "/" ".journals.uchicago.edu" t])
+ (".annualreviews.org"
+  [url-cookie "__cfduid" "d27832c9dc4c7da264b6919f7a23e39211589531385" "Sun, 14-Jun-20 08:29:45 GMT" "/" ".annualreviews.org" t]
+  [url-cookie "MAID" "9fK4OsjAoDhrnJqF+2cRIQ==" "Thu, 11-Mar-2021 08:29:45 GMT" "/" ".annualreviews.org" t]
+  [url-cookie "MACHINE_LAST_SEEN" "2020-05-15T01%3A29%3A45.378-07%3A00" "Thu, 11-Mar-2021 08:29:45 GMT" "/" ".annualreviews.org" t]
+  [url-cookie "lp" "ebee4392-b8f9-4f23-9723-40c2d9b5c2e2" "Thu, 13-Aug-2020 08:29:45 GMT" "/" ".annualreviews.org" t]
+  [url-cookie "I2KBRCK" "1" "Sat, 15-May-2021 08:29:45 GMT" "/" ".annualreviews.org" t])
+ (".sciencedirect.com"
+  [url-cookie "__cfduid" "d730b68ab9aed2e82d4f7b91e6de1f4181588718769" "Thu, 04-Jun-20 22:46:09 GMT" "/" ".sciencedirect.com" t]))
+)
 
 ;; Local Variables:
 ;; version-control: never

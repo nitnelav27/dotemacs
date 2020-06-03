@@ -184,6 +184,11 @@ This is autocomplete for LaTeX
    #+BEGIN_SRC emacs-lisp
      (delete-selection-mode 1)
    #+END_SRC
+** Preview hex-colors
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+  :ensure t)
+#+END_SRC
 ** Initialize stuff
    #+BEGIN_SRC emacs-lisp
      (setq inhibit-startup-message t)

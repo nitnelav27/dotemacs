@@ -32,13 +32,14 @@
     ("~/Documents/SUBMISSIONS/CSSSA2019/final_submission/csssa2019_valentin-amira.org")))
  '(package-selected-packages
    (quote
-    (zerodark-theme yasnippet yasnippet-snippets smartparens spacemacs-theme gnuplot-mode gnuplot circadian magit auctex org-ref exec-path-from-shell flycheck elpy ein ob-ipython org-re-reveal org-tempo ox-reveal org-babel-eval-in-repl swiper ivy counsel which-key use-package try org-bullets ace-window))))
+    (rainbow-delimiters zerodark-theme yasnippet yasnippet-snippets smartparens spacemacs-theme gnuplot-mode gnuplot circadian magit auctex org-ref exec-path-from-shell flycheck elpy ein ob-ipython org-re-reveal org-tempo ox-reveal org-babel-eval-in-repl swiper ivy counsel which-key use-package try org-bullets ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+ '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0))))
+ '(cursor ((t (:background "BlanchedAlmond")))))
 
 
 ;; This loads the org file with the code.
