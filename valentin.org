@@ -210,7 +210,7 @@ This is autocomplete for LaTeX
   (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  (load-theme 'doom-material t))
+  (load-theme 'doom-dark+ t))
 
 (use-package doom-modeline
   :custom
@@ -448,7 +448,7 @@ With this, I make sure that my opened files (after compilation are opened in evi
       (eval-after-load "org"
 	'(progn
        ;; Change .pdf association directly within the alist
-	   (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s"))))
+	   (setcdr (assoc "\\.pdf\\'" org-file-apps) "zathura %s"))))
 #+END_SRC
 ** Org Bullets
    #+BEGIN_SRC emacs-lisp

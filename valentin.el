@@ -180,7 +180,7 @@
   (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
-  (load-theme 'doom-material t))
+  (load-theme 'doom-dark+ t))
 
 (use-package doom-modeline
   :custom
@@ -402,7 +402,7 @@
     (eval-after-load "org"
       '(progn
      ;; Change .pdf association directly within the alist
-	 (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s"))))
+	 (setcdr (assoc "\\.pdf\\'" org-file-apps) "zathura %s"))))
 ;; Basic org:3 ends here
 
 ;; [[file:~/.emacs.d/valentin.org::*Org%20Bullets][Org Bullets:1]]
